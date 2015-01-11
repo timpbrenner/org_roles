@@ -11,8 +11,4 @@ class Organization < BaseOrganization
     org.parent_organization = self
   end
 
-  def check_role user
-    return get_role(user) || parent_organization.check_role(user)
-  end
-
 end

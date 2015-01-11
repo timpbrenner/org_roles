@@ -15,8 +15,4 @@ class RootOrganization < BaseOrganization
     org.parent_organization = self
   end
 
-  def check_role user
-    get_role user
-  end
-
 end

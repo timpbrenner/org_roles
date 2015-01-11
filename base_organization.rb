@@ -17,11 +17,14 @@ class BaseOrganization
     @roles.find {|r| r.user == user }
   end
 
-  def add_child_organization org
-    raise "Must be implemented in child class"
+  def check_role user
+    role = get_role(user)
+
+    return role if role
+    parent_organization.check_role(user) if parent_organization
   end
 
-  def check_role user
+  def add_child_organization org
     raise "Must be implemented in child class"
   end
 end
