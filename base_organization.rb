@@ -13,18 +13,22 @@ class BaseOrganization
     role
   end
 
-  def get_role user
-    @roles.find {|r| r.user == user }
-  end
-
   def check_role user
-    role = get_role(user)
-
-    return role if role
-    parent_organization.check_role(user) if parent_organization
+    if role = get_role(user)
+      role
+    elsif parent_organization
+      parent_organization.check_role(user)
+    end
   end
 
   def add_child_organization org
     raise "Must be implemented in child class"
   end
+
+private
+  def get_role user
+    #If these are ActiveRecord objects I would be doing id comparison, not object comparison
+    @roles.find {|r| r.user == user }
+  end
+
 end

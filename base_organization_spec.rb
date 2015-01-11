@@ -19,7 +19,7 @@ describe BaseOrganization, '#get_role' do
     root = RootOrganization.new
     user = User.new
 
-    root.get_role(user).should eq(nil)
+    root.check_role(user).should eq(nil)
   end
 
   it "Retrieves role" do
@@ -28,6 +28,6 @@ describe BaseOrganization, '#get_role' do
 
     role = root.add_role user, Role::ADMIN
 
-    root.get_role(user).should eq(role)
+    root.check_role(user).should eq(role)
   end
 end
