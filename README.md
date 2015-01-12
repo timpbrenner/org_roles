@@ -1,5 +1,19 @@
 # Organization Roles
+I have a GemFile so you can juat bundle in case you don't have RSpec
+installed.
+
 Here are my thoughts on how I solved the problem.
+
+I thought of it as two different tasks. 1.) Enforce the organizational
+hierarchy and 2.) returning accurate roles.
+
+I solve the rirst problem by having a base organization object that can
+have one parent and multiple children. The sub-classes enforce the
+individual business logic.
+
+Roles are associated with a user and an organization.  The lowest
+applicable organization will be asked for the role and the organization
+will keep asking parents until it finds a role.
 
 I have a base organization class that will handle the role addition and
 retrivial. This is also how I would have done it with ActiveRecord
