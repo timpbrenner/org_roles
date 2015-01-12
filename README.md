@@ -16,7 +16,7 @@ help build the organizational structure.  It is overriden in the
 RootOrganization, Organization, and ChildOrganization class to enforce
 the rules of organizational hierarchy.
 
-The second problem reloved around the role object roles are associated with
+The second problem revolved around the role object. Roles are associated with
 a user and an organization.  The lowest applicable organization will be
 asked for the role and the organization will keep asking parents until it finds a role.
 
